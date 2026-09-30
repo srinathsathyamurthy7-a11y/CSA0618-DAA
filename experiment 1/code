@@ -1,0 +1,19 @@
+def linear_search(arr, key):
+    for i in range(len(arr)):
+        if arr[i] == key:
+            return i
+    return -1
+
+
+# Sample input
+arr = [10, 25, 30, 45, 50]
+key = 30
+
+# Search for the key
+index = linear_search(arr, key)
+
+# Display result
+if index != -1:
+    print("Key found at index", index)
+else:
+    print("Key not found")
