@@ -1,0 +1,3 @@
+a = list(map(int, input("Enter elements: ").split()))
+a.sort()
+print("Sorted List:", a)

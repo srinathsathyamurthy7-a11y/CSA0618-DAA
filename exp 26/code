@@ -1,0 +1,27 @@
+points = [(1, 1), (4, 6), (8, 1), (0, 0), (3, 3)]
+hull = set()
+
+for i in range(len(points)):
+	for j in range(i + 1, len(points)):
+		left = right = False
+
+		for k in range(len(points)):
+			if k == i or k == j:
+				continue
+
+			x1, y1 = points[i]
+			x2, y2 = points[j]
+			x3, y3 = points[k]
+
+			cross = (x2 - x1) * (y3 - y1) - (y2 - y1) * (x3 - x1)
+
+			if cross > 0:
+				left = True
+			elif cross < 0:
+				right = True
+
+		if not (left and right):
+			hull.add(points[i])
+			hull.add(points[j])
+
+print("Convex Hull:", sorted(hull))

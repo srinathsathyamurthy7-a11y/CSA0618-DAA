@@ -1,0 +1,25 @@
+weights = [2, 3, 1]
+values = [4, 5, 3]
+capacity = 4
+
+n = len(weights)
+max_value = 0
+best = []
+
+for i in range(1 << n):
+	total_w = 0
+	total_v = 0
+	items = []
+
+	for j in range(n):
+		if i & (1 << j):
+			total_w += weights[j]
+			total_v += values[j]
+			items.append(j)
+
+	if total_w <= capacity and total_v > max_value:
+		max_value = total_v
+		best = items
+
+print("Selected Items:", best)
+print("Maximum Value:", max_value)

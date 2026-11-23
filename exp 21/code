@@ -1,0 +1,14 @@
+ a = [1, 2, 3, 1]
+low = 0
+high = len(a) - 1
+
+while low < high:
+	mid = (low + high) // 2
+
+	if a[mid] < a[mid + 1]:
+		low = mid + 1
+	else:
+		high = mid
+
+print("Peak Element Index:", low)
+print("Peak Element:", a[low])
